@@ -1,0 +1,59 @@
+<html ng-app="todoApp">
+
+<head>
+  <title>TO Do App </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+  <script src="./app.css"></script>
+</head>
+
+<body class="mainview">
+  <h1 class="text-center"> TO DO APP FEATURING ANGULAR-JS </h1>
+  <hr></hr>
+  <div class="container-fluid" ng-controller="Todoctrl as ctrl">
+    <h2 class="text-md-left"> Add your Todos: </h2>
+
+    <div>
+      <input class="form-control" type="text" ng-model="ctrl.newTodo" placeholder="Enter your todo" id="">
+      </input>
+
+      <button type="submit" ng-click="ctrl.addNewTodo()" class="btn btn-primary ">
+        <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+       </button>
+
+    </div>
+
+
+    <h2>your todos:</h2>
+
+    <table class="table table-sm table-dark">
+      <tr class="table-success">
+        <th>ToDo Number</th>
+        <th>Todo List</th>
+        <th>Mark to When Finish</th>
+        <th>REMOVE</th>
+      </tr>
+      <tr class="table-primary" ng-repeat="todo in ctrl.todos">
+        <td>{{ctrl.todos.indexOf(todo)+1}}</td>
+        <td>{{todo}}</td>
+        <td><input type="checkbox" ng-model="ctrl.selected"> </input>
+        </td>
+        <td><button type="button" ng-click="ctrl.removetodo($index)" class="btn btn-danger" aria-label="Left Align">
+         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+       </button>
+
+        </td>
+      </tr>
+    </table>
+
+
+  </div>
+</body>
+
+</html>
